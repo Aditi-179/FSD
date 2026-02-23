@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Manager</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background:  #667eea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background: white;
+    padding: 25px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+  }
+
+  input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102,126,234,0.5);
+  }
+
+  button {
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #5a67d8;
+  }
+
+  .contact {
+    background: #f4f4f4;
+    padding: 10px;
+    margin-top: 12px;
+    border-radius: 8px;
+  }
+
+  .contact button {
+    margin-right: 5px;
+    background: #764ba2;
+  }
+
+  .contact button:hover {
+    background: #5b3c8a;
+  }
+</style>
+
+</head>
+<body>
+
+  <body>
+
+<div class="container">
+  <h1>JS Contact Manager</h1>
+
+  <input type="text" id="name" placeholder="Enter Name">
+  <input type="email" id="email" placeholder="Enter Email">
+  <input type="number" id="phone" placeholder="Enter Phone">
+
+  <button onclick="addContact()">Add Contact</button>
+
+  <div id="contactList"></div>
+</div>
+
+
+  <script>
+    let contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+    let editIndex = null;
+
+    function addContact() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let phone = document.getElementById("phone").value;
+
+      if (name === "" || email === "" || phone === "") {
+        alert("All fields are required!");
+        return;
+      }
+
+      let contact = {
+        name: name,
+        email: email,
+        phone: phone
+      };
+
+      if (editIndex === null) {
+        contacts.push(contact);
+      } else {
+        contacts[editIndex] = contact;
+        editIndex = null;
+      }
+
+      localStorage.setItem("contacts", JSON.stringify(contacts));
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phone").value = "";
+
+      displayContacts();
+    }
+
+    function displayContacts() {
+      let list = document.getElementById("contactList");
+      list.innerHTML = "";
+
+      for (let i = 0; i < contacts.length; i++) {
+        let contactDiv = document.createElement("div");
+        contactDiv.className = "contact";
+
+        contactDiv.innerHTML =
+          "<b>" + contacts[i].name + "</b><br>" +
+          contacts[i].email + "<br>" +
+          contacts[i].phone + "<br>" +
+          "<button onclick='editContact(" + i + ")'>Edit</button>" +
+          "<button onclick='deleteContact(" + i + ")'>Delete</button>";
+
+        list.appendChild(contactDiv);
+      }
+    }
+
+    function deleteContact(index) {
+      contacts.splice(index, 1);
+      localStorage.setItem("contacts", JSON.stringify(contacts));
+      displayContacts();
+    }
+
+    function editContact(index) {
+      document.getElementById("name").value = contacts[index].name;
+      document.getElementById("email").value = contacts[index].email;
+      document.getElementById("phone").value = contacts[index].phone;
+
+      editIndex = index;
+    }
+
+    displayContacts();
+  </script>
+
+</body>
+</html>
+
