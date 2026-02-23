@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Product Program</title>
+</head>
+<body>
+
+<script>
+var products = [
+    { id: 1, name: "Laptop", price: 50000 },
+    { id: 2, name: "Headphones", price: 2000 },
+    { id: 3, name: "Chair", price: 7000 },
+    { id: 4, name: "Mobile", price: 30000 }
+  { id: 5, name: "TV", price: 1000 }
+  { id: 6, name: "Bag", price: 35000 }
+];
+
+console.log("All Products:");
+for (var i = 0; i < products.length; i++) {
+    console.log(products[i]);
+}
+
+var minPrice = prompt("Enter minimum price(1000-50000:");
+minPrice = Number(minPrice);
+ alert("Check th console !");
+console.log("Filtered Products:");
+for (var i = 0; i < products.length; i++) {
+    if (products[i].price >= minPrice) {
+        console.log(products[i]);
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+
