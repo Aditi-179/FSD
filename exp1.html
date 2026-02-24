@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canva - Design Made Easy</title>
 
+<!-- BOOTSTRAP 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 <style>
 *{
     margin:0;
@@ -24,15 +27,8 @@ html{
 
 /* ================= NAVBAR ================= */
 
-.navbar{
+.navbar-custom{
     background:linear-gradient(135deg,#5a67d8 0%,#667eea 100%);
-    padding:1rem 2rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
 }
 
 .logo{
@@ -41,25 +37,14 @@ html{
     color:white;
 }
 
-.nav-links{
-    display:flex;
-    list-style:none;
-    align-items:center;
-}
-
-.nav-links li{
-    margin-left:25px;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:white;
+.navbar-custom .nav-link{
+    color:white !important;
     font-weight:500;
     transition:0.3s;
 }
 
-.nav-links a:hover{
-    color:yellow;
+.navbar-custom .nav-link:hover{
+    color:yellow !important;
 }
 
 .btn-signup{
@@ -70,51 +55,6 @@ html{
     border-radius:25px;
     font-weight:bold;
     cursor:pointer;
-}
-
-/* Hamburger */
-.hamburger{
-    display:none;
-    flex-direction:column;
-    cursor:pointer;
-}
-
-.hamburger span{
-    height:3px;
-    width:25px;
-    background:white;
-    margin:4px 0;
-    transition:0.3s;
-}
-
-/* Mobile */
-@media(max-width:768px){
-
-    .nav-links{
-        position:absolute;
-        top:70px;
-        right:0;
-        background:#667eea;
-        width:100%;
-        flex-direction:column;
-        align-items:center;
-        max-height:0;
-        overflow:hidden;
-        transition:0.4s ease;
-    }
-
-    .nav-links.active{
-        max-height:400px;
-        padding:20px 0;
-    }
-
-    .nav-links li{
-        margin:15px 0;
-    }
-
-    .hamburger{
-        display:flex;
-    }
 }
 
 /* ================= HERO ================= */
@@ -155,7 +95,6 @@ html{
     }
 }
 
-/* Button */
 .btn-primary-custom{
     background:white;
     color:#667eea;
@@ -206,48 +145,6 @@ html{
     100%{transform:translateX(-100%);}
 }
 
-/* ================= TEMPLATES ================= */
-
-.templates-section{
-    padding:80px 20px;
-    background:#fafafa;
-    text-align:center;
-}
-
-.templates-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:2rem;
-    max-width:1100px;
-    margin:auto;
-}
-
-.template-card{
-    background:white;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    overflow:hidden;
-    transition:0.3s;
-}
-
-.template-card:hover{
-    transform:translateY(-8px);
-}
-
-.template-image{
-    height:200px;
-    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:3rem;
-    color:white;
-}
-
-.template-info{
-    padding:1.5rem;
-}
-
 /* ================= PRICING ================= */
 
 .pricing-section{
@@ -256,20 +153,13 @@ html{
     text-align:center;
 }
 
-.pricing-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:2rem;
-    max-width:1200px;
-    margin:auto;
-}
-
 .pricing-card{
     background:white;
     padding:3rem 2rem;
     border-radius:20px;
     box-shadow:0 10px 40px rgba(0,0,0,0.08);
     transition:0.3s;
+    height:100%;
 }
 
 .pricing-card:hover{
@@ -286,6 +176,7 @@ html{
 .pricing-card ul{
     list-style:none;
     margin-bottom:2rem;
+    padding:0;
 }
 
 .pricing-card ul li{
@@ -310,41 +201,54 @@ html{
     padding:3rem 2rem;
     text-align:center;
 }
+
+/* Responsive Hero Text */
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.5rem;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">Canva</div>
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+  <div class="container">
+    <a class="navbar-brand logo text-white" href="#">Canva</a>
 
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button class="btn-signup">Sign Up</button></li>
-    </ul>
+    <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+          <button class="btn-signup">Sign Up</button>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <h1>Design Made <span>Easy</span></h1>
-    <p>Create stunning graphics, presentations, and social media content in minutes.</p>
-    <button class="btn-primary-custom">Get Started Free</button>
+    <div class="container">
+        <h1>Design Made <span>Easy</span></h1>
+        <p>Create stunning graphics, presentations, and social media content in minutes.</p>
+        <button class="btn-primary-custom">Get Started Free</button>
+    </div>
 </section>
 
 <!-- FEATURES -->
-
-<section class="marquee-section">
-<h2 class="text-center mb-5">Powerful Design Features</h2>
+<section class="marquee-section" id="features">
+<div class="container">
+<h2>Powerful Design Features</h2>
 
 <div class="marquee">
 
@@ -379,50 +283,58 @@ html{
 </div>
 
 </div>
+</div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
-    <h2>Choose Your Plan</h2>
-    <div class="pricing-grid">
-        <div class="pricing-card">
-            <h3>Free</h3>
-            <div class="price">$0/month</div>
-            <ul>
-                <li>Free Templates</li>
-                <li>5GB Storage</li>
-            </ul>
-            <button class="btn-pricing">Get Started</button>
+    <div class="container">
+    <h2 class="mb-5">Choose Your Plan</h2>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="price">$0/month</div>
+                <ul>
+                    <li>Free Templates</li>
+                    <li>5GB Storage</li>
+                </ul>
+                <button class="btn-pricing">Get Started</button>
+            </div>
         </div>
 
-        <div class="pricing-card">
-            <h3>Pro</h3>
-            <div class="price">$12/month</div>
-            <ul>
-                <li>Premium Templates</li>
-                <li>100GB Storage</li>
-            </ul>
-            <button class="btn-pricing">Start Trial</button>
+        <div class="col-md-6">
+            <div class="pricing-card">
+                <h3>Pro</h3>
+                <div class="price">$12/month</div>
+                <ul>
+                    <li>Premium Templates</li>
+                    <li>100GB Storage</li>
+                </ul>
+                <button class="btn-pricing">Start Trial</button>
+            </div>
         </div>
+    </div>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section class="marquee-section" id="contact">
+    <div class="container">
     <h2>Contact Us</h2>
     <p>Email: support@canva.com</p>
+    </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
+    <div class="container">
     <p>© 2026 Canva. All rights reserved.</p>
+    </div>
 </footer>
 
-<script>
-function toggleMenu(){
-    document.getElementById("navLinks").classList.toggle("active");
-}
-</script>
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
