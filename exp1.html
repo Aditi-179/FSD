@@ -1,892 +1,448 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canva - Design Made Easy</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family:sans-serif;
-            overflow-x: hidden;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white !important;
-            letter-spacing: 1px;
-        }
-
-        .nav-link {
-            color: white;
-            margin: 0 0.5rem;
-            font-weight: 500;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-link:hover {
-            opacity: 0.8;
-        }
-
-        .btn-signup {
-            background-color: white;
-            color: #5a67d8;
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-signup:hover {
-            transform: scale(1.05);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            color: white;
-            padding: 140px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-       
-
-      
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 5rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
-            letter-spacing: -1.5px;
-            line-height: 1.15;
-            animation: slideInDown 0.8s ease;
-            word-spacing: 0.1em;
-        }
-
-        .hero h1 span {
-            color: yellow;
-                }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero p {
-            font-size: 1.35rem;
-            margin-bottom: 3rem;
-            opacity: 0.98;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-            animation: fadeInUp 0.8s ease 0.2s both;
-            font-weight: 300;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
-            margin-bottom: 4rem;
-        }
-
-        .btn-primary-custom {
-            background-color: white;
-            color: #667eea;
-            border: none;
-            padding: 18px 50px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary-custom::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .btn-primary-custom:hover::before {
-            left: 100%;
-        }
-
-
-
-
-        /* What is Canva Section */
-        .what-is-section {
-            padding: 100px 20px;
-            background-color: #f8f9fa;
-        }
-
-        .what-is-section h2 {
-            font-size: 2.8rem;
-            color: #333;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        .what-is-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .what-is-text h3 {
-            font-size: 1.9rem;
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .what-is-text p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 1.2rem;
-        }
-
-        .what-is-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 5rem;
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
-        }
-
-        /* ===== ENHANCED FEATURES SECTION ===== */
-        .features-section {
-            padding: 120px 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #f1f5ff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .features-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: rgba(102, 126, 234, 0.05);
-            border-radius: 50%;
-        }
-
-        .features-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: rgba(240, 147, 251, 0.05);
-            border-radius: 50%;
-        }
-
-        .features-section h2 {
-            font-size: 3rem;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            text-align: center;
-            font-weight: 900;
-            position: relative;
-            z-index: 1;
-        }
-
-        .features-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            border: 1px solid rgba(102, 126, 234, 0.1);
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-            transform-origin: left;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-20px) scale(1.02);
-            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-
-        .feature-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            animation: iconPulse 2s ease-in-out infinite;
-        }
-
-        .feature-card:nth-child(1) .feature-icon { animation-delay: 0s; }
-        .feature-card:nth-child(2) .feature-icon { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) .feature-icon { animation-delay: 0.4s; }
-        .feature-card:nth-child(4) .feature-icon { animation-delay: 0.2s; }
-        .feature-card:nth-child(5) .feature-icon { animation-delay: 0.4s; }
-        .feature-card:nth-child(6) .feature-icon { animation-delay: 0s; }
-
-        @keyframes iconPulse {
-            0%, 100% {
-                transform: scale(1);
-                filter: brightness(1);
-            }
-            50% {
-                transform: scale(1.1);
-                filter: brightness(1.2);
-            }
-        }
-
-        .feature-card h3 {
-            font-size: 1.6rem;
-            color: #1a1a1a;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: #666;
-            font-size: 1.05rem;
-            line-height: 1.7;
-            margin-bottom: 0;
-        }
-
-        .feature-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.4rem 0.9rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-top: 1.2rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* Marquee Section */
-        .marquee-section {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .marquee-section h2 {
-            font-size: 2.8rem;
-            color: white;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        .marquee-container {
-           
-            padding: 2rem;
-
-            margin-bottom: 2rem;
-
-        }
-
-        .marquee {
-            display: flex;
-            gap: 2rem;
-            animation: scroll-left 25s linear infinite;
-        }
-
-        .marquee-item {
-            flex-shrink: 0;
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 2rem;
-            border-radius: 15px;
-            min-width: 250px;
-            text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .marquee-item:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-            transform: translateY(-5px);
-        }
-
-        .marquee-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .marquee-item p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .marquee-reverse {
-            animation: scroll-right 25s linear infinite;
-        }
-
-        @keyframes scroll-right {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        /* Templates Section */
-        .templates-section {
-            padding: 100px 20px;
-            background-color: white;
-        }
-
-        .templates-section h2 {
-            font-size: 2.8rem;
-            color: #333;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 800;
-        }
-
-        .templates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .template-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 1px solid #eee;
-        }
-
-        .template-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.2);
-        }
-
-        .template-image {
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .template-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0);
-            transition: background 0.3s ease;
-        }
-
-        .template-card:hover .template-image::after {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .template-info {
-            padding: 2rem;
-        }
-
-        .template-info h3 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 0.6rem;
-            font-weight: 700;
-        }
-
-        .template-info p {
-            color: #999;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #2d3436 0%, #1a1a1a 100%);
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 2rem;
-        }
-
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            color: #667eea;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            color: #999;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .what-is-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .btn-primary-custom,
-            .btn-secondary-custom {
-                width: 100%;
-            }
-
-            .features-section h2 {
-                font-size: 2rem;
-            }
-
-       
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canva - Design Made Easy</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:sans-serif;
+overflow-x:hidden;
+background:#ffffff;
+}
+
+/* Navbar */
+.navbar{
+background:linear-gradient(135deg,#5a67d8 0%,#667eea 100%);
+padding:1rem 2rem;
+}
+
+.navbar-brand{
+font-size:1.8rem;
+font-weight:bold;
+color:white !important;
+}
+
+.nav-link{
+color:white !important;
+margin:0 0.5rem;
+}
+
+.btn-signup{
+background:white;
+color:#5a67d8;
+border:none;
+padding:0.5rem 1.5rem;
+border-radius:25px;
+font-weight:bold;
+}
+
+/* Hero */
+.hero{
+background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+color:white;
+padding:140px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:4rem;
+font-weight:900;
+margin-bottom:1rem;
+}
+
+.hero h1 span{
+color:yellow;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:2rem;
+}
+/* HERO TEXT ANIMATION */
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideUp 1.2s ease forwards;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeSlideUp 1.2s ease forwards;
+    animation-delay: 0.4s;
+}
+
+/* Keyframes */
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GRADIENT BUTTON */
+.btn-primary-custom {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 300% 300%;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 40px;
+    font-weight: 700;
+    transition: 0.3s ease;
+    animation: gradientMove 5s ease infinite;
+}
+
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-primary-custom:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.btn-primary-custom{
+background:white;
+color:#667eea;
+border:none;
+padding:15px 40px;
+border-radius:40px;
+font-weight:700;
+}
+.marquee-section{
+padding:80px 20px;
+background:#ffffff;
+color:#333;
+}
+
+.marquee-section h2{
+color:#667eea;
+font-weight:700;
+}
+
+.marquee{
+display:flex;
+gap:2rem;
+animation:scroll 20s linear infinite;
+}
+
+.marquee-item{
+background:#f3f4ff;
+padding:1.5rem;
+border-radius:15px;
+min-width:250px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.marquee-item h5{
+color:#667eea;
+font-weight:600;
+margin-bottom:0.5rem;
+}
+
+.marquee-item p{
+font-size:0.9rem;
+color:#555;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+/* Templates */
+.templates-section{
+padding:80px 20px;
+background:#fafafa;
+}
+
+.templates-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:2rem;
+max-width:1100px;
+margin:auto;
+}
+
+.template-card{
+background:white;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+overflow:hidden;
+text-align:center;
+transition:0.3s;
+}
+
+.template-card:hover{
+transform:translateY(-8px);
+}
+
+.template-image{
+height:200px;
+background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:3rem;
+color:white;
+}
+
+.template-info{
+padding:1.5rem;
+}
+
+/* Pricing (Updated - White Background) */
+.pricing-section{
+padding:100px 20px;
+background:#ffffff;
+}
+
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:2rem;
+max-width:1200px;
+margin:auto;
+}
+
+.pricing-card{
+background:white;
+padding:3rem 2rem;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.08);
+transition:0.3s;
+position:relative;
+}
+
+.pricing-card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(102,126,234,0.3);
+}
+
+.price{
+font-size:2.5rem;
+font-weight:800;
+color:#667eea;
+margin:1rem 0;
+}
+
+.price span{
+font-size:1rem;
+color:#777;
+}
+
+.pricing-card ul{
+list-style:none;
+padding:0;
+margin-bottom:2rem;
+}
+
+.pricing-card ul li{
+margin-bottom:0.7rem;
+}
+
+.btn-pricing{
+background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+border:none;
+color:white;
+padding:12px 30px;
+border-radius:30px;
+font-weight:600;
+}
+
+.popular{
+border:2px solid #667eea;
+}
+
+.popular-badge{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+background:#667eea;
+color:white;
+padding:5px 15px;
+border-radius:20px;
+font-size:0.75rem;
+}
+
+/* Footer */
+.footer{
+background:#1a1a1a;
+color:white;
+padding:3rem 2rem;
+text-align:center;
+}
+</style>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"> Canva</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#templates">Templates</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                
-                    <li class="nav-item">
-                        <button class="btn btn-signup">Sign Up</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Design Made <span>Easy</span></h1>
-            <p>Create stunning graphics, presentations, and social media content in minutes. No design skills required.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary-custom">Get Started Free</button>
-               
-            </div>
-           
-        </div>
-    </section>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+<div class="container-fluid">
+<a class="navbar-brand" href="#">Canva</a>
+<div class="ms-auto">
+<button class="btn btn-signup">Sign Up</button>
+</div>
+</div>
+</nav>
 
-    <!-- What is Canva Section -->
-    <section class="what-is-section" id="about">
-        <div class="container">
-            <h2>What is Canva?</h2>
-            <div class="what-is-content">
-                <div class="what-is-text">
-                    <h3>Design for Everyone</h3>
-                    <p>Canva is a free, easy-to-use graphic design tool that helps you create professional designs without any prior experience. Whether you're designing for social media, print, or presentations, Canva makes it simple.</p>
-                    <p>With millions of templates, photos, and design elements at your fingertips, you can bring your ideas to life in seconds. Join millions of users worldwide who trust Canva.</p>
-                    <button class="btn-primary-custom" style="margin-top: 1.5rem;">Learn More</button>
-                </div>
-                <div class="what-is-image">
-                    🎨
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="hero">
+<h1>Design Made <span>Easy</span></h1>
+<p>Create stunning graphics, presentations, and social media content in minutes.</p>
+<button class="btn-primary-custom">Get Started Free</button>
+</section>
 
-    <!-- Features Section -->
-    <section class="features-section" id="features">
-        <div class="container">
-            <h2>Why Choose Canva?</h2>
-            <p class="features-subtitle">Powerful tools designed for everyone</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Easy to Use</h3>
-                    <p>Intuitive drag-and-drop interface makes design accessible to everyone, regardless of skill level. Start creating in seconds.</p>
-                    <div class="feature-badge">BEGINNER FRIENDLY</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Millions of Templates</h3>
-                    <p>Choose from thousands of professionally designed templates for any occasion or project. Customize in minutes.</p>
-                    <div class="feature-badge">10M+ TEMPLATES</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🖼️</div>
-                    <h3>Stock Library</h3>
-                    <p>Access millions of photos, icons, and graphics to enhance your designs instantly. Premium quality included.</p>
-                    <div class="feature-badge">UNLIMITED ASSETS</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Team Collaboration</h3>
-                    <p>Work together with your team in real-time and share your creative projects seamlessly across departments.</p>
-                    <div class="feature-badge">REAL-TIME SYNC</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">☁️</div>
-                    <h3>Cloud Based</h3>
-                    <p>Access your designs from anywhere, anytime on any device. Never lose your work with automatic cloud storage.</p>
-                    <div class="feature-badge">ALWAYS AVAILABLE</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Fast & Responsive</h3>
-                    <p>Lightning-fast performance with responsive design tools that adapt to your workflow and boost productivity.</p>
-                    <div class="feature-badge">OPTIMIZED SPEED</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Features -->
+<section class="marquee-section">
+<h2 class="text-center mb-5">Powerful Design Features</h2>
 
-    <!-- Marquee Section -->
-    <section class="marquee-section">
-        <div class="container-fluid">
-            <h2>What Our Users Create</h2>
-            
-            
-            <div class="marquee-container">
-                <div class="marquee">
-                    <div class="marquee-item">
-                        <h4>📱 Social Media Posts</h4>
-                        <p>Instagram, Facebook, TikTok designs</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📊 Presentations</h4>
-                        <p>Business pitches and reports</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📰 Flyers</h4>
-                        <p>Marketing and promotional materials</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>👔 Resumes</h4>
-                        <p>Professional CV designs</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🎉 Event Designs</h4>
-                        <p>Invitations and cards</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📱 Social Media Posts</h4>
-                        <p>Instagram, Facebook, TikTok designs</p>
-                    </div> <div class="marquee">
-                    <div class="marquee-item">
-                        <h4>📱 Social Media Posts</h4>
-                        <p>Instagram, Facebook, TikTok designs</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📊 Presentations</h4>
-                        <p>Business pitches and reports</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📰 Flyers</h4>
-                        <p>Marketing and promotional materials</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>👔 Resumes</h4>
-                        <p>Professional CV designs</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🎉 Event Designs</h4>
-                        <p>Invitations and cards</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📱 Social Media Posts</h4>
-                        <p>Instagram, Facebook, TikTok designs</p>
-                    </div>
-                </div>
-            </div>
+<div class="marquee">
 
-          
-            <div class="marquee-container">
-                <div class="marquee marquee-reverse">
-                    <div class="marquee-item">
-                        <h4>🎨 Logo Design</h4>
-                        <p>Professional branding</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📚 Ebooks</h4>
-                        <p>Digital publications</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🎬 Video Thumbnails</h4>
-                        <p>YouTube and streaming content</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📧 Email Templates</h4>
-                        <p>Marketing campaigns</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🖨️ Business Cards</h4>
-                        <p>Professional contact cards</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🎨 Logo Design</h4>
-                        <p>Professional branding</p>
-                    </div> <div class="marquee-item">
-                        <h4>🎨 Logo Design</h4>
-                        <p>Professional branding</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📚 Ebooks</h4>
-                        <p>Digital publications</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🎬 Video Thumbnails</h4>
-                        <p>YouTube and streaming content</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>📧 Email Templates</h4>
-                        <p>Marketing campaigns</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🖨️ Business Cards</h4>
-                        <p>Professional contact cards</p>
-                    </div>
-                    <div class="marquee-item">
-                        <h4>🎨 Logo Design</h4>
-                        <p>Professional branding</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="marquee-item">
+<h5>📱 Social Media Designs</h5>
+<p>Create eye-catching posts, reels, and stories tailored for every platform.</p>
+</div>
 
-    <!-- Templates Section -->
-    <section class="templates-section" id="templates">
-        <div class="container">
-            <h2>Popular Templates</h2>
-            <div class="templates-grid">
-                <div class="template-card">
-                    <div class="template-image">📱</div>
-                    <div class="template-info">
-                        <h3>Social Media Kit</h3>
-                        <p>Complete branding package for all platforms</p>
-                    </div>
-                </div>
-                <div class="template-card">
-                    <div class="template-image">🎯</div>
-                    <div class="template-info">
-                        <h3>Marketing Flyer</h3>
-                        <p>Eye-catching promotional designs</p>
-                    </div>
-                </div>
-                <div class="template-card">
-                    <div class="template-image">💼</div>
-                    <div class="template-info">
-                        <h3>Business Proposal</h3>
-                        <p>Professional pitch templates</p>
-                    </div>
-                </div>
-            
-                <div class="template-card">
-                    <div class="template-image">🎉</div>
-                    <div class="template-info">
-                        <h3>Event Invitation</h3>
-                        <p>Celebration and party invites</p>
-                    </div>
-                </div
-            </div>
-        </div>
-    </section>
+<div class="marquee-item">
+<h5>📊 Presentation Builder</h5>
+<p>Design professional slides with animations, charts, and layouts in minutes.</p>
+</div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
+<div class="marquee-item">
+<h5>🎨 Drag & Drop Editor</h5>
+<p>Easily customize templates with a simple and intuitive interface.</p>
+</div>
 
-            <div class="footer-column">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Community</a></li>
-                    <li><a href="#">Status</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
-                    <li><a href="#">Security</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Canva. All rights reserved. | Design Made Easy</p>
-        </div>
-    </footer>
+<div class="marquee-item">
+<h5>👔 Resume Creator</h5>
+<p>Build modern resumes that stand out and impress employers.</p>
+</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<div class="marquee-item">
+<h5>🎉 Event & Invitation Maker</h5>
+<p>Create beautiful invitations for weddings, parties, and special events.</p>
+</div>
+
+<div class="marquee-item">
+<h5>🎯 Brand Kit</h5>
+<p>Maintain brand consistency with logos, fonts, and color palettes.</p>
+</div>
+
+</div>
+</section>
+
+<!-- Templates -->
+<section class="templates-section">
+<h2 class="text-center mb-5">Popular Templates</h2>
+<div class="templates-grid">
+
+<div class="template-card">
+<div class="template-image">📱</div>
+<div class="template-info">
+<h4>Social Media Kit</h4>
+<p>Complete branding package</p>
+</div>
+</div>
+
+<div class="template-card">
+<div class="template-image">🎯</div>
+<div class="template-info">
+<h4>Marketing Flyer</h4>
+<p>Promotional designs</p>
+</div>
+</div>
+
+<div class="template-card">
+<div class="template-image">💼</div>
+<div class="template-info">
+<h4>Business Proposal</h4>
+<p>Professional pitch</p>
+</div>
+</div>
+
+<div class="template-card">
+<div class="template-image">🎉</div>
+<div class="template-info">
+<h4>Event Invitation</h4>
+<p>Party invites</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing-section">
+<h2 class="text-center mb-5">Choose Your Plan</h2>
+<div class="pricing-grid">
+
+<div class="pricing-card">
+<h3>Free</h3>
+<div class="price">$0<span>/month</span></div>
+<ul>
+<li>✔ Free Templates</li>
+<li>✔ 5GB Storage</li>
+<li>✔ Basic Tools</li>
+</ul>
+<button class="btn-pricing">Get Started</button>
+</div>
+
+<div class="pricing-card popular">
+<div class="popular-badge">Most Popular</div>
+<h3>Pro</h3>
+<div class="price">$12<span>/month</span></div>
+<ul>
+<li>✔ Premium Templates</li>
+<li>✔ Brand Kit</li>
+<li>✔ 100GB Storage</li>
+</ul>
+<button class="btn-pricing">Start Trial</button>
+</div>
+
+<div class="pricing-card">
+<h3>Enterprise</h3>
+<div class="price">$30<span>/month</span></div>
+<ul>
+<li>✔ Team Collaboration</li>
+<li>✔ Admin Controls</li>
+<li>✔ Unlimited Storage</li>
+</ul>
+<button class="btn-pricing">Contact Sales</button>
+</div>
+
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<p>© 2026 Canva. All rights reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
