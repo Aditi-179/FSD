@@ -5,318 +5,344 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canva - Design Made Easy</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-font-family:sans-serif;
-overflow-x:hidden;
-background:#ffffff;
+    font-family:sans-serif;
+    overflow-x:hidden;
+    background:#ffffff;
 }
 
-/* Navbar */
+html{
+    scroll-behavior:smooth;
+}
+
+/* ================= NAVBAR ================= */
+
 .navbar{
-background:linear-gradient(135deg,#5a67d8 0%,#667eea 100%);
-padding:1rem 2rem;
+    background:linear-gradient(135deg,#5a67d8 0%,#667eea 100%);
+    padding:1rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.navbar-brand{
-font-size:1.8rem;
-font-weight:bold;
-color:white !important;
+.logo{
+    font-size:1.8rem;
+    font-weight:bold;
+    color:white;
 }
 
-.nav-link{
-color:white !important;
-margin:0 0.5rem;
+.nav-links{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+.nav-links li{
+    margin-left:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:yellow;
 }
 
 .btn-signup{
-background:white;
-color:#5a67d8;
-border:none;
-padding:0.5rem 1.5rem;
-border-radius:25px;
-font-weight:bold;
+    background:white;
+    color:#5a67d8;
+    border:none;
+    padding:8px 20px;
+    border-radius:25px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-/* Hero */
-.hero{
-background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
-color:white;
-padding:140px 20px;
-text-align:center;
+/* Hamburger */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    cursor:pointer;
 }
 
-.hero h1{
-font-size:4rem;
-font-weight:900;
-margin-bottom:1rem;
+.hamburger span{
+    height:3px;
+    width:25px;
+    background:white;
+    margin:4px 0;
+    transition:0.3s;
 }
 
-.hero h1 span{
-color:yellow;
-}
+/* Mobile */
+@media(max-width:768px){
 
-.hero p{
-font-size:1.2rem;
-margin-bottom:2rem;
-}
-/* HERO TEXT ANIMATION */
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeSlideUp 1.2s ease forwards;
-}
+    .nav-links{
+        position:absolute;
+        top:70px;
+        right:0;
+        background:#667eea;
+        width:100%;
+        flex-direction:column;
+        align-items:center;
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s ease;
+    }
 
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeSlideUp 1.2s ease forwards;
-    animation-delay: 0.4s;
-}
+    .nav-links.active{
+        max-height:400px;
+        padding:20px 0;
+    }
 
-/* Keyframes */
-@keyframes fadeSlideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .nav-links li{
+        margin:15px 0;
+    }
+
+    .hamburger{
+        display:flex;
     }
 }
 
-/* GRADIENT BUTTON */
-.btn-primary-custom {
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-    background-size: 300% 300%;
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 40px;
-    font-weight: 700;
-    transition: 0.3s ease;
-    animation: gradientMove 5s ease infinite;
+/* ================= HERO ================= */
+
+.hero{
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);
+    color:white;
+    padding:140px 20px;
+    text-align:center;
 }
 
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.hero h1{
+    font-size:4rem;
+    font-weight:900;
+    margin-bottom:1rem;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeSlideUp 1.2s ease forwards;
 }
 
-.btn-primary-custom:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.hero h1 span{
+    color:yellow;
 }
 
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:2rem;
+    opacity:0;
+    transform:translateY(40px);
+    animation:fadeSlideUp 1.2s ease forwards;
+    animation-delay:0.4s;
+}
+
+@keyframes fadeSlideUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Button */
 .btn-primary-custom{
-background:white;
-color:#667eea;
-border:none;
-padding:15px 40px;
-border-radius:40px;
-font-weight:700;
+    background:white;
+    color:#667eea;
+    border:none;
+    padding:15px 40px;
+    border-radius:40px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
 }
+
+.btn-primary-custom:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ================= FEATURES ================= */
+
 .marquee-section{
-padding:80px 20px;
-background:#ffffff;
-color:#333;
+    padding:80px 20px;
+    background:#ffffff;
+    color:#333;
+    text-align:center;
 }
 
 .marquee-section h2{
-color:#667eea;
-font-weight:700;
+    color:#667eea;
+    font-weight:700;
+    margin-bottom:50px;
 }
 
 .marquee{
-display:flex;
-gap:2rem;
-animation:scroll 20s linear infinite;
+    display:flex;
+    gap:2rem;
+    animation:scroll 20s linear infinite;
 }
 
 .marquee-item{
-background:#f3f4ff;
-padding:1.5rem;
-border-radius:15px;
-min-width:250px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-.marquee-item h5{
-color:#667eea;
-font-weight:600;
-margin-bottom:0.5rem;
-}
-
-.marquee-item p{
-font-size:0.9rem;
-color:#555;
+    background:#f3f4ff;
+    padding:1.5rem;
+    border-radius:15px;
+    min-width:250px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 @keyframes scroll{
-0%{transform:translateX(0);}
-100%{transform:translateX(-100%);}
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
 }
 
-/* Templates */
+/* ================= TEMPLATES ================= */
+
 .templates-section{
-padding:80px 20px;
-background:#fafafa;
+    padding:80px 20px;
+    background:#fafafa;
+    text-align:center;
 }
 
 .templates-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:2rem;
-max-width:1100px;
-margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:2rem;
+    max-width:1100px;
+    margin:auto;
 }
 
 .template-card{
-background:white;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-overflow:hidden;
-text-align:center;
-transition:0.3s;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    overflow:hidden;
+    transition:0.3s;
 }
 
 .template-card:hover{
-transform:translateY(-8px);
+    transform:translateY(-8px);
 }
 
 .template-image{
-height:200px;
-background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:3rem;
-color:white;
+    height:200px;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:3rem;
+    color:white;
 }
 
 .template-info{
-padding:1.5rem;
+    padding:1.5rem;
 }
 
-/* Pricing (Updated - White Background) */
+/* ================= PRICING ================= */
+
 .pricing-section{
-padding:100px 20px;
-background:#ffffff;
+    padding:100px 20px;
+    background:#ffffff;
+    text-align:center;
 }
 
 .pricing-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:2rem;
-max-width:1200px;
-margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:2rem;
+    max-width:1200px;
+    margin:auto;
 }
 
 .pricing-card{
-background:white;
-padding:3rem 2rem;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 40px rgba(0,0,0,0.08);
-transition:0.3s;
-position:relative;
+    background:white;
+    padding:3rem 2rem;
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
 .pricing-card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 50px rgba(102,126,234,0.3);
+    transform:translateY(-10px);
 }
 
 .price{
-font-size:2.5rem;
-font-weight:800;
-color:#667eea;
-margin:1rem 0;
-}
-
-.price span{
-font-size:1rem;
-color:#777;
+    font-size:2.5rem;
+    font-weight:800;
+    color:#667eea;
+    margin:1rem 0;
 }
 
 .pricing-card ul{
-list-style:none;
-padding:0;
-margin-bottom:2rem;
+    list-style:none;
+    margin-bottom:2rem;
 }
 
 .pricing-card ul li{
-margin-bottom:0.7rem;
+    margin-bottom:0.7rem;
 }
 
 .btn-pricing{
-background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-border:none;
-color:white;
-padding:12px 30px;
-border-radius:30px;
-font-weight:600;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    border:none;
+    color:white;
+    padding:12px 30px;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
 }
 
-.popular{
-border:2px solid #667eea;
-}
+/* ================= FOOTER ================= */
 
-.popular-badge{
-position:absolute;
-top:-12px;
-left:50%;
-transform:translateX(-50%);
-background:#667eea;
-color:white;
-padding:5px 15px;
-border-radius:20px;
-font-size:0.75rem;
-}
-
-/* Footer */
 .footer{
-background:#1a1a1a;
-color:white;
-padding:3rem 2rem;
-text-align:center;
+    background:#1a1a1a;
+    color:white;
+    padding:3rem 2rem;
+    text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-<div class="container-fluid">
-<a class="navbar-brand" href="#">Canva</a>
-<div class="ms-auto">
-<button class="btn btn-signup">Sign Up</button>
-</div>
-</div>
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Canva</div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="btn-signup">Sign Up</button></li>
+    </ul>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-<h1>Design Made <span>Easy</span></h1>
-<p>Create stunning graphics, presentations, and social media content in minutes.</p>
-<button class="btn-primary-custom">Get Started Free</button>
+<!-- HERO -->
+<section class="hero" id="home">
+    <h1>Design Made <span>Easy</span></h1>
+    <p>Create stunning graphics, presentations, and social media content in minutes.</p>
+    <button class="btn-primary-custom">Get Started Free</button>
 </section>
 
-<!-- Features -->
+<!-- FEATURES -->
+
 <section class="marquee-section">
 <h2 class="text-center mb-5">Powerful Design Features</h2>
 
@@ -355,94 +381,48 @@ text-align:center;
 </div>
 </section>
 
-<!-- Templates -->
-<section class="templates-section">
-<h2 class="text-center mb-5">Popular Templates</h2>
-<div class="templates-grid">
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+    <h2>Choose Your Plan</h2>
+    <div class="pricing-grid">
+        <div class="pricing-card">
+            <h3>Free</h3>
+            <div class="price">$0/month</div>
+            <ul>
+                <li>Free Templates</li>
+                <li>5GB Storage</li>
+            </ul>
+            <button class="btn-pricing">Get Started</button>
+        </div>
 
-<div class="template-card">
-<div class="template-image">📱</div>
-<div class="template-info">
-<h4>Social Media Kit</h4>
-<p>Complete branding package</p>
-</div>
-</div>
-
-<div class="template-card">
-<div class="template-image">🎯</div>
-<div class="template-info">
-<h4>Marketing Flyer</h4>
-<p>Promotional designs</p>
-</div>
-</div>
-
-<div class="template-card">
-<div class="template-image">💼</div>
-<div class="template-info">
-<h4>Business Proposal</h4>
-<p>Professional pitch</p>
-</div>
-</div>
-
-<div class="template-card">
-<div class="template-image">🎉</div>
-<div class="template-info">
-<h4>Event Invitation</h4>
-<p>Party invites</p>
-</div>
-</div>
-
-</div>
+        <div class="pricing-card">
+            <h3>Pro</h3>
+            <div class="price">$12/month</div>
+            <ul>
+                <li>Premium Templates</li>
+                <li>100GB Storage</li>
+            </ul>
+            <button class="btn-pricing">Start Trial</button>
+        </div>
+    </div>
 </section>
 
-<!-- Pricing -->
-<section class="pricing-section">
-<h2 class="text-center mb-5">Choose Your Plan</h2>
-<div class="pricing-grid">
-
-<div class="pricing-card">
-<h3>Free</h3>
-<div class="price">$0<span>/month</span></div>
-<ul>
-<li>✔ Free Templates</li>
-<li>✔ 5GB Storage</li>
-<li>✔ Basic Tools</li>
-</ul>
-<button class="btn-pricing">Get Started</button>
-</div>
-
-<div class="pricing-card popular">
-<div class="popular-badge">Most Popular</div>
-<h3>Pro</h3>
-<div class="price">$12<span>/month</span></div>
-<ul>
-<li>✔ Premium Templates</li>
-<li>✔ Brand Kit</li>
-<li>✔ 100GB Storage</li>
-</ul>
-<button class="btn-pricing">Start Trial</button>
-</div>
-
-<div class="pricing-card">
-<h3>Enterprise</h3>
-<div class="price">$30<span>/month</span></div>
-<ul>
-<li>✔ Team Collaboration</li>
-<li>✔ Admin Controls</li>
-<li>✔ Unlimited Storage</li>
-</ul>
-<button class="btn-pricing">Contact Sales</button>
-</div>
-
-</div>
+<!-- CONTACT -->
+<section class="marquee-section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@canva.com</p>
 </section>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer class="footer">
-<p>© 2026 Canva. All rights reserved.</p>
+    <p>© 2026 Canva. All rights reserved.</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
