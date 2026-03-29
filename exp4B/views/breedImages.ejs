@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Breed Images</title>
+  <style>
+    body { text-align: center; font-family: Arial; }
+    .grid { display: flex; flex-wrap: wrap; justify-content: center; }
+    img { width: 250px; margin: 50px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Breed Images</h1>
+
+<div class="grid">
+  <% images.forEach(img => { %>
+    <img src="<%= img.url %>">
+  <% }) %>
+</div>
+
+<a href="/breeds">Back</a>
+
+</body>
+</html>

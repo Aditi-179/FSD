@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Breeds</title>
+  <style>
+    body { text-align: center; font-family: Arial; }
+    a { display: block; margin: 50px; }
+  </style>
+</head>
+<body>
+
+<h1>Dog Breeds</h1>
+
+<ul>
+  <% breeds.forEach(b => { %>
+    <li>
+      <a href="/breed/<%= b.id %>"><%= b.name %></a>
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/">Back</a>
+
+</body>
+</html>

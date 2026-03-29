@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search</title>
+  <style>
+    body { text-align: center; font-family: Arial; }
+    .grid { display: flex; flex-wrap: wrap; justify-content: center; }
+    img { width: 250px; margin: 50px; border-radius: 10px; }
+  </style>
+</head>
+<body>
+
+<h1>Results for "<%= query %>"</h1>
+
+<% if(images.length === 0){ %>
+  <p>No images found</p>
+<% } else { %>
+  <div class="grid">
+    <% images.forEach(img => { %>
+      <img src="<%= img.url %>">
+    <% }) %>
+  </div>
+<% } %>
+
+<a href="/">Back</a>
+
+</body>
+</html>

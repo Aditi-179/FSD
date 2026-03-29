@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dog App</title>
+  <style>
+    body { text-align: center; font-family: Arial; background: #f4f4f4; }
+    img { width: 300px; border-radius: 10px; margin: 20px; }
+    a { padding: 10px; background: blue; color: white; border-radius: 10px; margin: 5px; text-decoration: none; }
+    form {
+  margin-top: 15px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background: green;
+  color: white;
+}
+  </style>
+</head>
+<body>
+
+<h1>🐶 Random Dog</h1>
+
+<img src="<%= image %>">
+
+<br>
+
+<a href="/">New Dog</a>
+<a href="/breeds">Breeds</a>
+
+<form action="/search">
+  <input name="q" placeholder="Search dog">
+  <button>Search</button>
+</form>
+
+</body>
+</html>
