@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TEDxMumbai 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E62B1E;
+    --black: #0C0C0C;
+    --white: #F7F4EE;
+    --gray: #1A1A1A;
+    --gray-mid: #2E2E2E;
+    --muted: #8A8A8A;
+    --serif: 'Bebas Neue', sans-serif;
+    --body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--body);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(12,12,12,0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .ted-badge {
+    background: var(--red);
+    color: white;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.55rem;
+    border-radius: 2px;
+  }
+
+  .nav-event {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--white);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--red) !important;
+    color: white !important;
+    padding: 0.4rem 1.2rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 3rem;
+    padding-top: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 55%;
+    height: 120%;
+    background: radial-gradient(ellipse at top right, rgba(230,43,30,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow-line {
+    width: 2.5rem;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .eyebrow-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(4.5rem, 8vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-title span {
+    color: var(--red);
+  }
+
+  .hero-subtitle {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 3.2rem);
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .meta-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .meta-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--red);
+    color: white;
+    padding: 0.85rem 2rem;
+    border: none;
+    font-family: var(--body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: #c0221a;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-family: var(--body);
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: border-color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    animation: fadeIn 1.2s ease 0.3s both;
+  }
+
+  .hero-x-mark {
+    font-family: var(--serif);
+    font-size: clamp(16rem, 25vw, 28rem);
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(230,43,30,0.35);
+    user-select: none;
+    position: relative;
+  }
+
+  .hero-x-mark::after {
+    content: 'x';
+    position: absolute;
+    top: 0; left: 0;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(230,43,30,0.12);
+    transform: translate(12px, 12px);
+  }
+
+  /* TICKER */
+  .ticker-strip {
+    background: var(--red);
+    padding: 0.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 28s linear infinite;
+    gap: 0;
+  }
+
+  .ticker-item {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    color: white;
+    padding: 0 2.5rem;
+  }
+
+  .ticker-dot {
+    color: rgba(255,255,255,0.5);
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* THEME SECTION */
+  .theme-section {
+    padding: 7rem 3rem;
+    position: relative;
+  }
+
+  .theme-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 3rem; right: 3rem;
+    height: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+
+  .section-number {
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    margin-bottom: 3rem;
+  }
+
+  .theme-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .theme-heading {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.03em;
+  }
+
+  .theme-heading em {
+    color: var(--red);
+    font-style: normal;
+  }
+
+  .theme-body {
+    padding-top: 0.5rem;
+  }
+
+  .theme-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(247,244,238,0.65);
+    margin-bottom: 2rem;
+    max-width: 42ch;
+  }
+
+  .theme-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-top: 2rem;
+  }
+
+  .stat-cell {
+    background: var(--black);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    color: var(--white);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* SPEAKERS */
+  .speakers-section {
+    padding: 7rem 3rem;
+    position: relative;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    letter-spacing: 0.05em;
+  }
+
+  .section-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .section-link:hover { gap: 0.8rem; }
+
+  .speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .speaker-card {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .speaker-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    background: var(--gray-mid);
+    position: relative;
+  }
+
+  .speaker-avatar {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--gray-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .speaker-avatar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, transparent 100%);
+  }
+
+  .avatar-initials {
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: rgba(255,255,255,0.12);
+    letter-spacing: 0.05em;
+  }
+
+  .speaker-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.2rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(12,12,12,0.95) 0%, transparent 100%);
+  }
+
+  .speaker-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    display: block;
+  }
+
+  .speaker-role {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .speaker-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background: var(--red);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 1px;
+  }
+
+  .speaker-card:hover .speaker-avatar {
+    filter: brightness(0.8);
+  }
+
+  /* SCHEDULE SECTION */
+  .schedule-section {
+    padding: 7rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .schedule-list {
+    margin-top: 3.5rem;
+  }
+
+  .schedule-item {
+    display: grid;
+    grid-template-columns: 8rem 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.8rem 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
+  }
+
+  .schedule-item:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .schedule-time {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .schedule-info {}
+
+  .schedule-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+
+  .schedule-speaker {
+    font-size: 0.78rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .schedule-type {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border-radius: 1px;
+  }
+
+  .type-talk { border: 1px solid var(--red); color: var(--red); }
+  .type-performance { border: 1px solid rgba(255,255,255,0.2); color: var(--muted); }
+  .type-break { border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.25); }
+
+  /* VENUE SECTION */
+  .venue-section {
+    padding: 7rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .venue-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  .venue-map {
+    aspect-ratio: 4/3;
+    background: var(--gray);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .venue-map svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .venue-info {}
+
+  .venue-name {
+    font-family: var(--serif);
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .venue-address {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .venue-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .venue-detail-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .vd-icon {
+    width: 1.5rem;
+    color: var(--red);
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    margin-top: 0.05rem;
+  }
+
+  .vd-text {
+    font-size: 0.85rem;
+    color: rgba(247,244,238,0.6);
+    line-height: 1.5;
+  }
+
+  /* TICKET SECTION */
+  .ticket-section {
+    padding: 7rem 3rem;
+    background: var(--gray);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ticket-section::before {
+    content: 'TEDX';
+    position: absolute;
+    right: -2rem;
+    bottom: -3rem;
+    font-family: var(--serif);
+    font-size: 18rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .ticket-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ticket-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+
+  .ticket-card:hover {
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .ticket-card.featured {
+    border-color: var(--red);
+    position: relative;
+  }
+
+  .ticket-featured-badge {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--red);
+    color: white;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.2rem 0.8rem;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .ticket-tier {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .ticket-price {
+    font-family: var(--serif);
+    font-size: 3rem;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .ticket-price sup {
+    font-size: 1.2rem;
+    vertical-align: super;
+  }
+
+  .ticket-avail {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .ticket-perks {
+    list-style: none;
+    margin-bottom: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .ticket-perks li {
+    font-size: 0.82rem;
+    color: rgba(247,244,238,0.65);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .perk-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-x {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(230,43,30,0.5);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* COUNT DOWN */
+  .countdown {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: inline-flex;
+  }
+
+  .cd-unit {
+    padding: 0.8rem 1.2rem;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    min-width: 4.5rem;
+  }
+
+  .cd-unit:last-child { border-right: none; }
+
+  .cd-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--white);
+    display: block;
+    line-height: 1;
+  }
+
+  .cd-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-top: 0.25rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="ted-badge">TED</span>
+    <span class="nav-event">x MUMBAI</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#theme">Theme</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#venue">Venue</a></li>
+    <li><a href="#tickets" class="nav-cta">Get Tickets</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">June 14, 2026 · Mumbai</span>
+    </div>
+
+    <h1 class="hero-title">
+      IDEA<span>S</span><br>THAT<br>RESHAPE
+    </h1>
+    <p class="hero-subtitle">TEDx MUMBAI 2026</p>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-unit"><span class="cd-num" id="cd-days">54</span><span class="cd-label">Days</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-hours">12</span><span class="cd-label">Hours</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-mins">08</span><span class="cd-label">Mins</span></div>
+      <div class="cd-unit"><span class="cd-num" id="cd-secs">33</span><span class="cd-label">Secs</span></div>
+    </div>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Venue</span>
+        <span class="meta-value">NCPA, Mumbai</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Speakers</span>
+        <span class="meta-value">18 Visionaries</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Capacity</span>
+        <span class="meta-value">1,200 Seats</span>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#tickets" class="btn-primary">Register Now</a>
+      <a href="#speakers" class="btn-ghost">Meet the Speakers</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-x-mark">x</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-strip" aria-hidden="true">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">IDEAS WORTH SPREADING <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">TEDxMUMBAI 2026 <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">JUNE 14 <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">NCPA, MUMBAI <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">18 SPEAKERS <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">IDEAS WORTH SPREADING <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">TEDxMUMBAI 2026 <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">JUNE 14 <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">NCPA, MUMBAI <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">18 SPEAKERS <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">IDEAS WORTH SPREADING <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">TEDxMUMBAI 2026 <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">JUNE 14 <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">NCPA, MUMBAI <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">18 SPEAKERS <span class="ticker-dot">·</span></span>
+  </div>
+</div>
+
+<!-- THEME -->
+<section class="theme-section" id="theme">
+  <div class="section-number">01 / THEME</div>
+  <div class="theme-layout">
+    <div>
+      <h2 class="theme-heading">
+        THE<br>REWIRED<br><em>MIND</em>
+      </h2>
+      <div class="theme-stats">
+        <div class="stat-cell">
+          <span class="stat-number">18</span>
+          <span class="stat-label">Speakers</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">8h</span>
+          <span class="stat-label">Of Ideas</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-number">1.2K</span>
+          <span class="stat-label">Attendees</span>
+        </div>
+      </div>
+    </div>
+    <div class="theme-body">
+      <p class="theme-desc">
+        In a world saturated with information and noise, the capacity to think differently is humanity's rarest resource. This year's theme explores the edges of human cognition — from neuroscience breakthroughs to the philosophical frontiers of artificial intelligence.
+      </p>
+      <p class="theme-desc">
+        Eighteen extraordinary minds. One day. One transformative conversation about what it means to think, create, and lead in an age of radical uncertainty.
+      </p>
+      <a href="#speakers" class="btn-ghost" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        Explore Speakers &rarr;
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKERS -->
+<section class="speakers-section" id="speakers">
+  <div class="section-header">
+    <div>
+      <div class="section-number" style="margin-bottom: 0.5rem;">02 / SPEAKERS</div>
+      <h2 class="section-title">MEET THE MINDS</h2>
+    </div>
+    <a href="#" class="section-link">View all 18 speakers &rarr;</a>
+  </div>
+
+  <div class="speakers-grid">
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <span class="avatar-initials">AR</span>
+      </div>
+      <div class="speaker-overlay">
+        <span class="speaker-name">ARJUN REDDY</span>
+        <span class="speaker-role">Cognitive Neuroscientist, IISc</span>
+      </div>
+      <div class="speaker-tag">Featured</div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <span class="avatar-initials">PM</span>
+      </div>
+      <div class="speaker-overlay">
+        <span class="speaker-name">PRIYA MEHTA</span>
+        <span class="speaker-role">AI Ethics Researcher</span>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <span class="avatar-initials">SK</span>
+      </div>
+      <div class="speaker-overlay">
+        <span class="speaker-name">SANJAY KAPOOR</span>
+        <span class="speaker-role">Climate Architect</span>
+      </div>
+    </div>
+
+    <div class="speaker-card">
+      <div class="speaker-avatar">
+        <span class="avatar-initials">LF</span>
+      </div>
+      <div class="speaker-overlay">
+        <span class="speaker-name">LAYLA FAROOQI</span>
+        <span class="speaker-role">Behavioral Economist</span>
+      </div>
+      <div class="speaker-tag">Keynote</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section" id="schedule">
+  <div class="section-number">03 / SCHEDULE</div>
+  <h2 class="section-title">JUNE 14, 2026</h2>
+
+  <div class="schedule-list">
+    <div class="schedule-item">
+      <span class="schedule-time">09:00</span>
+      <div class="schedule-info">
+        <div class="schedule-title">Doors Open & Registration</div>
+        <div class="schedule-speaker">Welcome refreshments · Networking</div>
+      </div>
+      <span class="schedule-type type-break">Arrival</span>
+    </div>
+    <div class="schedule-item">
+      <span class="schedule-time">10:00</span>
+      <div class="schedule-info">
+        <div class="schedule-title">The Thinking Machine Inside Us</div>
+        <div class="schedule-speaker">Arjun Reddy · Cognitive Neuroscientist</div>
+      </div>
+      <span class="schedule-type type-talk">Talk</span>
+    </div>
+    <div class="schedule-item">
+      <span class="schedule-time">10:25</span>
+      <div class="schedule-info">
+        <div class="schedule-title">When Algorithms Dream</div>
+        <div class="schedule-speaker">Priya Mehta · AI Ethics Researcher</div>
+      </div>
+      <span class="schedule-type type-talk">Talk</span>
+    </div>
+    <div class="schedule-item">
+      <span class="schedule-time">11:15</span>
+      <div class="schedule-info">
+        <div class="schedule-title">Rhythms of Resistance</div>
+        <div class="schedule-speaker">Tabla & Electronic Fusion Performance</div>
+      </div>
+      <span class="schedule-type type-performance">Performance</span>
+    </div>
+    <div class="schedule-item">
+      <span class="schedule-time">12:00</span>
+      <div class="schedule-info">
+        <div class="schedule-title">Lunch & Community Break</div>
+        <div class="schedule-speaker">Curated conversations · Exhibition</div>
+      </div>
+      <span class="schedule-type type-break">Break</span>
+    </div>
+    <div class="schedule-item">
+      <span class="schedule-time">14:00</span>
+      <div class="schedule-info">
+        <div class="schedule-title">Designing Cities That Think</div>
+        <div class="schedule-speaker">Sanjay Kapoor · Climate Architect</div>
+      </div>
+      <span class="schedule-type type-talk">Talk</span>
+    </div>
+    <div class="schedule-item">
+      <span class="schedule-time">16:30</span>
+      <div class="schedule-info">
+        <div class="schedule-title">Keynote: The Rewired Mind</div>
+        <div class="schedule-speaker">Layla Farooqi · Behavioral Economist</div>
+      </div>
+      <span class="schedule-type type-talk">Keynote</span>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue-section" id="venue">
+  <div class="section-number">04 / VENUE</div>
+  <h2 class="section-title">WHERE IDEAS LAND</h2>
+
+  <div class="venue-layout">
+    <div class="venue-map">
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="360" fill="#1A1A1A"/>
+        <!-- Grid lines -->
+        <line x1="0" y1="80" x2="480" y2="80" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="0" y1="160" x2="480" y2="160" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="0" y1="240" x2="480" y2="240" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="0" y1="320" x2="480" y2="320" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="80" y1="0" x2="80" y2="360" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="160" y1="0" x2="160" y2="360" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="240" y1="0" x2="240" y2="360" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="320" y1="0" x2="320" y2="360" stroke="#2a2a2a" stroke-width="1"/>
+        <line x1="400" y1="0" x2="400" y2="360" stroke="#2a2a2a" stroke-width="1"/>
+        <!-- Roads -->
+        <path d="M0 185 Q120 185 240 180 Q360 175 480 170" stroke="#333" stroke-width="14" fill="none"/>
+        <path d="M220 0 Q225 90 230 180 Q235 270 240 360" stroke="#333" stroke-width="14" fill="none"/>
+        <path d="M0 270 Q100 265 200 260 Q300 255 480 255" stroke="#2C2C2C" stroke-width="8" fill="none"/>
+        <path d="M80 0 Q85 90 88 180 Q91 270 94 360" stroke="#2C2C2C" stroke-width="8" fill="none"/>
+        <path d="M350 0 Q348 90 346 180 Q344 270 342 360" stroke="#2C2C2C" stroke-width="8" fill="none"/>
+        <!-- Water -->
+        <path d="M360 240 Q400 220 460 230 L480 250 L480 360 L360 360 Z" fill="#0d1d2e" opacity="0.8"/>
+        <path d="M380 250 Q420 235 470 242" stroke="#1a3a5c" stroke-width="1.5" fill="none"/>
+        <path d="M370 265 Q410 252 465 258" stroke="#1a3a5c" stroke-width="1" fill="none"/>
+        <!-- Buildings -->
+        <rect x="110" y="100" width="45" height="60" rx="1" fill="#252525"/>
+        <rect x="162" y="115" width="35" height="45" rx="1" fill="#252525"/>
+        <rect x="270" y="200" width="55" height="40" rx="1" fill="#252525"/>
+        <rect x="105" y="210" width="30" height="35" rx="1" fill="#252525"/>
+        <!-- NCPA venue highlight -->
+        <rect x="248" y="128" width="72" height="48" rx="2" fill="#2a0a09"/>
+        <rect x="248" y="128" width="72" height="48" rx="2" fill="none" stroke="#E62B1E" stroke-width="1.5"/>
+        <!-- Pin -->
+        <circle cx="284" cy="152" r="14" fill="#E62B1E"/>
+        <circle cx="284" cy="148" r="5" fill="white"/>
+        <path d="M284 153 L281 162 L284 160 L287 162 Z" fill="#E62B1E"/>
+        <!-- Label -->
+        <rect x="255" y="185" width="58" height="18" rx="2" fill="rgba(230,43,30,0.15)"/>
+        <text x="284" y="198" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#E62B1E" font-weight="600" letter-spacing="1">NCPA</text>
+        <!-- Compass -->
+        <circle cx="440" cy="40" r="18" fill="#222" stroke="#333" stroke-width="1"/>
+        <text x="440" y="32" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#888">N</text>
+        <line x1="440" y1="24" x2="440" y2="56" stroke="#444" stroke-width="0.5"/>
+        <line x1="422" y1="40" x2="458" y2="40" stroke="#444" stroke-width="0.5"/>
+        <circle cx="440" cy="40" r="2" fill="#E62B1E"/>
+      </svg>
+    </div>
+
+    <div class="venue-info">
+      <h3 class="venue-name">NCPA MUMBAI</h3>
+      <p class="venue-address">National Centre for the Performing Arts<br>Nariman Point, Mumbai 400021</p>
+      <div class="venue-details">
+        <div class="venue-detail-row">
+          <span class="vd-icon">◷</span>
+          <span class="vd-text">Saturday, June 14, 2026 · Doors open at 9:00 AM · Event ends 7:00 PM</span>
+        </div>
+        <div class="venue-detail-row">
+          <span class="vd-icon">⊕</span>
+          <span class="vd-text">Jamshed Bhabha Theatre, Main Auditorium · Capacity 1,200</span>
+        </div>
+        <div class="venue-detail-row">
+          <span class="vd-icon">◈</span>
+          <span class="vd-text">Nearest station: Churchgate (1.2 km) · Marine Lines (0.8 km)</span>
+        </div>
+        <div class="venue-detail-row">
+          <span class="vd-icon">◉</span>
+          <span class="vd-text">Valet parking available · Accessible venue · Sign language interpretation provided</span>
+        </div>
+      </div>
+      <div style="margin-top: 2rem;">
+        <a href="#" class="btn-ghost" style="font-size: 0.75rem;">Get Directions &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section class="ticket-section" id="tickets">
+  <div class="section-number">05 / TICKETS</div>
+  <h2 class="section-title">JOIN THE MOVEMENT</h2>
+
+  <div class="ticket-layout">
+    <div class="ticket-card">
+      <div class="ticket-tier">Early Access</div>
+      <div class="ticket-price"><sup>₹</sup>2,499</div>
+      <div class="ticket-avail">Limited seats remaining</div>
+      <ul class="ticket-perks">
+        <li><span class="perk-dot"></span>Full day access</li>
+        <li><span class="perk-dot"></span>TEDxMumbai 2026 kit</li>
+        <li><span class="perk-dot"></span>Lunch included</li>
+        <li><span class="perk-dot"></span>Digital recordings</li>
+      </ul>
+      <a href="#" class="btn-ghost" style="width: 100%; text-align: center;">Register →</a>
+    </div>
+
+    <div class="ticket-card featured">
+      <div class="ticket-featured-badge">Most Popular</div>
+      <div class="ticket-tier">Standard</div>
+      <div class="ticket-price"><sup>₹</sup>3,999</div>
+      <div class="ticket-avail">General admission</div>
+      <ul class="ticket-perks">
+        <li><span class="perk-dot"></span>Full day access</li>
+        <li><span class="perk-dot"></span>TEDxMumbai 2026 premium kit</li>
+        <li><span class="perk-dot"></span>Lunch & evening reception</li>
+        <li><span class="perk-dot"></span>Digital recordings</li>
+        <li><span class="perk-dot"></span>Speaker meet & greet</li>
+      </ul>
+      <a href="#" class="btn-primary" style="width: 100%; text-align: center;">Register →</a>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-tier">Patron</div>
+      <div class="ticket-price"><sup>₹</sup>8,999</div>
+      <div class="ticket-avail">Exclusive — 50 seats only</div>
+      <ul class="ticket-perks">
+        <li><span class="perk-dot"></span>Premium reserved seating</li>
+        <li><span class="perk-dot"></span>Backstage access</li>
+        <li><span class="perk-dot"></span>Speakers dinner (evening)</li>
+        <li><span class="perk-dot"></span>All digital rights</li>
+        <li><span class="perk-dot"></span>TEDxMumbai patron credit</li>
+      </ul>
+      <a href="#" class="btn-ghost" style="width: 100%; text-align: center;">Register →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">
+    TEDxMumbai is independently organized under TED license.<br>
+    &copy; 2026 TEDxMumbai · All rights reserved.
+  </div>
+  <span class="footer-x">x</span>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Twitter/X</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Contact</a>
+    <a href="#">Sponsor</a>
+  </div>
+</footer>
+
+<script>
+  function updateCountdown() {
+    const target = new Date('2026-06-14T09:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) return;
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.theme-section, .speakers-section, .schedule-section, .venue-section').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

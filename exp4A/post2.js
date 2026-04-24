@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 // Route to render profile
 app.get("/profile", (req, res) => {
     res.render("profile", {
-        name: "Joshua",
+        name: "Aditi",
         branch: "Computer Engineering",
         year: "SE"
     });

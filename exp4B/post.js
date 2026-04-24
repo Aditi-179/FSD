@@ -5,11 +5,11 @@ const PORT = 3000
 app.use(express.json()) 
  
 let students = [ 
-    { id: 1, name: "John Fsd", branch: "CE", year: 3 }, 
-    { id: 2, name: "Jason Fsd", branch: "CE", year: 3 }, 
-    { id: 3, name: "Door James", branch: "CE", year: 1 }, 
-    { id: 4, name: "Kitty McCat", branch: "CE", year: 4 }, 
-    { id: 5, name: "Grigori Rasputin", branch: "CE", year: 2 } 
+    { id: 1, name: "Amant Raut", branch: "CE", year: 3 }, 
+    { id: 2, name: "Branch Fsd", branch: "CE", year: 3 }, 
+    { id: 3, name: "Git Stash", branch: "CE", year: 1 }, 
+    { id: 4, name: "Kitty Cat", branch: "CE", year: 4 }, 
+    { id: 5, name: "Girish Irsh", branch: "CE", year: 2 } 
 ] 
  
 app.get("/students", (req, res) => { 
